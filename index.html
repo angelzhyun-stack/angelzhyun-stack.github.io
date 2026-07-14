@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="프로페셔널 프로필과 프로젝트를 소개하는 정적 포트폴리오 웹사이트입니다."
+    >
+    <title>Professional Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="game.js" defer></script>
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">본문으로 건너뛰기</a>
+
+    <header class="site-header">
+      <div class="site-header__inner">
+        <a class="site-title" href="#home" aria-label="홈으로 이동">
+          Professional Portfolio
+        </a>
+
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="primary-navigation"
+        >
+          <span class="nav-toggle__label">Menu</span>
+          <span class="nav-toggle__icon" aria-hidden="true"></span>
+        </button>
+
+        <nav class="site-nav" aria-label="주요 메뉴">
+          <ul class="site-nav__list" id="primary-navigation">
+            <li><a href="#home" aria-current="page">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#games">Games</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="hero section" id="home" aria-labelledby="home-title">
+        <div class="section__inner">
+          <p class="eyebrow">Professional Website</p>
+          <h1 id="home-title">Welcome</h1>
+          <p class="section__lead">
+            개인 프로필 내용은 확인 후 이 영역에 추가됩니다.
+          </p>
+          <div class="hero__actions">
+            <a class="button button--primary" href="#projects">프로젝트 보기</a>
+            <a class="button button--secondary" href="#games">게임 체험하기</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--muted" id="about" aria-labelledby="about-title">
+        <div class="section__inner">
+          <p class="eyebrow">About</p>
+          <h2 id="about-title">소개</h2>
+          <div class="content-card">
+            <p>확인된 소개와 전문 분야 정보가 준비되면 이 영역에 반영됩니다.</p>
+            <p class="pending-content">[사람 확인 필요] 이름, 직함, 소개, 전문 분야</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="experience" aria-labelledby="experience-title">
+        <div class="section__inner">
+          <p class="eyebrow">Experience</p>
+          <h2 id="experience-title">경력</h2>
+          <div class="content-card">
+            <p>검증된 경력과 역할을 시간순으로 소개할 영역입니다.</p>
+            <p class="pending-content">[사람 확인 필요] 회사, 역할, 기간, 주요 성과</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--muted" id="projects" aria-labelledby="projects-title">
+        <div class="section__inner">
+          <p class="eyebrow">Projects</p>
+          <h2 id="projects-title">프로젝트</h2>
+          <div class="project-grid">
+            <article class="content-card">
+              <h3>프로젝트 정보 준비 중</h3>
+              <p>승인된 프로젝트 설명과 사용 기술, 링크가 이 카드에 추가됩니다.</p>
+              <p class="pending-content">[사람 확인 필요] 프로젝트 이름과 공개 링크</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--games" id="games" aria-labelledby="games-title">
+        <div class="section__inner">
+          <p class="eyebrow">Games</p>
+          <h2 id="games-title">지렁이 게임</h2>
+          <p class="section__lead section__lead--light">
+            방향키·WASD 또는 화면 버튼으로 조작하세요. 보드에서는 스와이프도 지원합니다.
+          </p>
+
+          <div class="game-shell" aria-labelledby="game-status">
+            <div class="game-toolbar">
+              <div class="score-card">
+                <span>Score</span>
+                <strong id="game-score">0</strong>
+              </div>
+              <div class="score-card">
+                <span>Best</span>
+                <strong id="game-high-score">0</strong>
+              </div>
+              <p id="game-status" class="game-status" aria-live="polite">
+                시작 버튼을 눌러 게임을 시작하세요.
+              </p>
+            </div>
+
+            <div class="game-board-wrap">
+              <canvas
+                id="game-canvas"
+                width="480"
+                height="480"
+                tabindex="0"
+                aria-label="지렁이 게임 보드"
+                aria-describedby="game-instructions"
+              ></canvas>
+            </div>
+
+            <p id="game-instructions" class="sr-only">
+              방향키 또는 W A S D로 이동하고, 스페이스 키로 일시정지하거나 재개합니다.
+            </p>
+
+            <div class="game-actions" aria-label="게임 동작">
+              <button class="button button--game" id="game-start" type="button">시작</button>
+              <button class="button button--game" id="game-pause" type="button" disabled>
+                일시정지
+              </button>
+              <button class="button button--game" id="game-restart" type="button">다시 시작</button>
+            </div>
+
+            <div class="d-pad" aria-label="모바일 방향 조작">
+              <button class="d-pad__button d-pad__button--up" type="button" data-direction="up" aria-label="위로 이동">↑</button>
+              <button class="d-pad__button d-pad__button--left" type="button" data-direction="left" aria-label="왼쪽으로 이동">←</button>
+              <button class="d-pad__button d-pad__button--down" type="button" data-direction="down" aria-label="아래로 이동">↓</button>
+              <button class="d-pad__button d-pad__button--right" type="button" data-direction="right" aria-label="오른쪽으로 이동">→</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="contact" aria-labelledby="contact-title">
+        <div class="section__inner">
+          <p class="eyebrow">Contact</p>
+          <h2 id="contact-title">연락처</h2>
+          <div class="content-card">
+            <p>승인된 이메일과 프로페셔널 프로필 링크가 준비되면 게시됩니다.</p>
+            <p class="pending-content">[사람 확인 필요] 공개 이메일, GitHub, LinkedIn</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="section__inner">
+        <p>Professional Portfolio</p>
+      </div>
+    </footer>
+  </body>
+</html>

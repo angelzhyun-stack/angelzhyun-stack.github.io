@@ -1,0 +1,16 @@
+# Secrets and local authentication
+github_token.txt
+env_settings.txt
+**/env_settings.txt
+.env
+.env.*
+
+# Local tooling and non-site workspace files
+.agents/
+claude-code-cli/
+Microsoft/
+artifacts/
+
+# Browser/Python caches
+__pycache__/
+*.pyc
